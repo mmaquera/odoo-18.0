@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: odoo-app
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python odoo-bin --config=/etc/odoo.conf
+    envVars:
+      - key: DATABASE_URL
+        value: postgres://admin:ZQDKH0iGZGdeTHK7rZHqm9YGka2W63BR@host:5432/odoo_wxbk
+      - key: ADDONS_PATH
+        value: ./addons
+    plan: free  # Puedes cambiarlo a "starter" o "standard" para más recursos
